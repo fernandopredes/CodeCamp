@@ -1,4 +1,6 @@
-*{
+body{
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: #DDDDDD;
+  font-family: 'Roboto', sans-serif;
 }
