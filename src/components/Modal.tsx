@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {ModalStyle} from '../components/Modal.style'
 
 const Modal = () => {
+  const [name, setName] = useState('')
+
   return (
     <ModalStyle>
      <div className="blank">
       <h1>Welcome to CodeLeap network!</h1>
       <h2>Please enter your username</h2>
         <div className='flex'>
-        <input type="text" />
-        <button className='btn'>enter</button>
+        <input type="text" placeholder='John doe' value={name} onChange={(e)=>{setName(e.target.value)}}/>
+        <button disabled={name === '' ? true : false}>enter</button>
         </div>
      </div>
     </ModalStyle>

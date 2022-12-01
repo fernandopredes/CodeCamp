@@ -19,7 +19,7 @@ export const ModalStyle = styled.div`
       font-size: 22px;
       line-height: 26px;
     }
-    
+
     h2{
         font-style: normal;
         font-weight: 400;
@@ -40,6 +40,7 @@ export const ModalStyle = styled.div`
         width: 444px;
         border: 1px solid #777777;
         border-radius: 4px;
+        padding: 7px 0 7px 11px;
       }
 
       button{
@@ -51,6 +52,10 @@ export const ModalStyle = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
+        &:disabled{
+          opacity: 0.5;
+          cursor: not-allowed;
+}
       }
     }
 
