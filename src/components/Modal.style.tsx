@@ -56,6 +56,7 @@ export const ModalStyle = styled.div`
           opacity: 0.5;
           cursor: not-allowed;
 }
+
       }
     }
 
