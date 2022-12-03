@@ -1,13 +1,13 @@
 
 import './App.css'
-import Modal from './components/Modal'
+import SignUp from './pages/Modal'
 
 function App() {
 
 
   return (
     <div>
-      <Modal  />
+      <SignUp  />
     </div>
   )
 }

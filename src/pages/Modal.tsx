@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import {ModalStyle} from '../components/Modal.style'
+import {ModalStyle} from './Modal.style'
 
-const Modal = () => {
+const SignUp = () => {
   const [name, setName] = useState('')
 
   return (
@@ -18,4 +18,4 @@ const Modal = () => {
   )
 }
 
-export default Modal
+export default SignUp
