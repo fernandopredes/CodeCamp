@@ -1,14 +1,14 @@
 
 import { useSelector } from 'react-redux'
 import './App.css'
-import SignUp from './pages/Modal'
+import Home from './pages/Home'
 
 function App() {
 
-  
+
   return (
     <div>
-      <SignUp  />
+      <Home  />
     </div>
   )
 }

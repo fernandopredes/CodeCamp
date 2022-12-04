@@ -7,16 +7,22 @@ const SignUp = () => {
   const [name, setName] = useState('')
   const dispatch = useDispatch()
 
-  function login(event: FormEvent) {
-    event.preventDefault()
-    dispatch(setUser({
+
+   function login(event: FormEvent) {
+     event.preventDefault()
+      dispatch(setUser({
       name
     }))
+    const modal = document.getElementById('hide')
+    modal!.classList.add('hide')
   }
 
+
   return (
-    <ModalStyle>
-     <div className="blank">
+    <ModalStyle >
+
+     <div className='fade'></div>
+     <div className="blank" id='hide' >
       <h1>Welcome to CodeLeap network!</h1>
       <h2>Please enter your username</h2>
         <div className='flex'>
@@ -26,6 +32,7 @@ const SignUp = () => {
         </form>
         </div>
      </div>
+
     </ModalStyle>
   )
 }

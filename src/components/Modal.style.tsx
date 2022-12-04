@@ -1,12 +1,20 @@
 import styled from 'styled-components'
 
+
 export const ModalStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
+  position: absolute;
+  z-index: 1;
+  background-color: #DDDDDD;
+  width: 100%;
 ;
+
+  .hide{
+    display: none !important;
+  }
 
   .blank{
     background-color: #FFFFFF;
