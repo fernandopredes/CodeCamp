@@ -10,7 +10,8 @@ export const ModalStyle = styled.div`
   z-index: 1;
   background-color: #DDDDDD;
   width: 100%;
-;
+
+
 
   .hide{
     display: none !important;

@@ -9,6 +9,15 @@ const Home = (props: Props) => {
     <>
       <Modal />
       <div>teste</div>
+      <h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1><h1>teste</h1>
+      <h1>teste</h1>
+      <h1>teste</h1>
     </>
   )
 }

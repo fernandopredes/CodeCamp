@@ -6,7 +6,8 @@ import { setUser } from '../redux/modules/user';
 const SignUp = () => {
   const [name, setName] = useState('')
   const dispatch = useDispatch()
-
+  const modal = document.getElementById('hide')
+  console.log(modal)
 
    function login(event: FormEvent) {
      event.preventDefault()
@@ -14,15 +15,13 @@ const SignUp = () => {
       name
     }))
     const modal = document.getElementById('hide')
-    modal!.classList.add('hide')
+    modal!.style.display = "none"
   }
 
 
   return (
-    <ModalStyle >
-
-     <div className='fade'></div>
-     <div className="blank" id='hide' >
+    <ModalStyle id='hide'>
+     <div className="blank"   >
       <h1>Welcome to CodeLeap network!</h1>
       <h2>Please enter your username</h2>
         <div className='flex'>
