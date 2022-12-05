@@ -5,10 +5,11 @@ import { Page } from './Home.style'
 import api from '../api/index'
 
 
+
 type CardProps = {
   id: Number
   username: String
-  created_datetime: Date
+  created_datetime: String
   title: String
   content: String
 }
@@ -16,17 +17,25 @@ type CardProps = {
 const Home = () => {
 
   const [cards, setCards] = useState<CardProps[]>([])
+  const [show, setShow] = useState(10)
+  const [total, setTotal] = useState(0)
 
   async function getCards() {
-    const { data } = await  api.get(`/`)
+    const { data } = await  api.get(`/?limit=${show}&offset=0`)
     setCards(data.results)
-    console.log(data)
+    setTotal(data.results.length)
     }
 
     useEffect(() => {
       getCards()
 
-    }, [])
+    }, [show])
+
+    function showMore() {
+
+      setShow(show+10)
+
+    }
 
 
   return (
@@ -39,7 +48,7 @@ const Home = () => {
           {cards.map((card)=> (
             <Card username={card.username} created_datetime={card.created_datetime} title={card.title} content={card.content} />
           ))}
-
+          <button onClick={showMore} disabled={total !== show ? true : false}>show more</button>
       </Page>
     </>
   )
