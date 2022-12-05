@@ -7,7 +7,7 @@ const SignUp = () => {
   const [name, setName] = useState('')
   const dispatch = useDispatch()
   const modal = document.getElementById('hide')
-  console.log(modal)
+  
 
    function login(event: FormEvent) {
      event.preventDefault()

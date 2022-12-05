@@ -5,7 +5,7 @@ import editar from '../assets/editar.svg'
 
 type CardProps = {
   username: String
-  created_datetime: Date
+  created_datetime: String
   title: String
   content: String
 }
@@ -23,7 +23,7 @@ const Card = ({username, created_datetime, title, content}: CardProps) => {
       <div className="content">
         <div className="data">
           <p>@{username}</p>
-          <p>{} minutes ago</p>
+          <p>{created_datetime} minutes ago</p>
         </div>
         <div className="text">
           <p>

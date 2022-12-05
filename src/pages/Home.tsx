@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import Modal from '../components/ModalLogin'
 import { Page } from './Home.style'
+import api from '../api/index'
 
 
-type Props = {}
+type CardProps = {
+  id: Number
+  username: String
+  created_datetime: Date
+  title: String
+  content: String
+}
 
-const Home = (props: Props) => {
+const Home = () => {
+
+  const [cards, setCards] = useState<CardProps[]>([])
+
+  async function getCards() {
+    const { data } = await  api.get(`/`)
+    setCards(data.results)
+    console.log(data)
+    }
+
+    useEffect(() => {
+      getCards()
+
+    }, [])
+
+
   return (
     <>
       <Modal />
@@ -14,7 +36,10 @@ const Home = (props: Props) => {
           <div className='header'>
             <h1>CodeLeap Network </h1>
           </div>
-        <Card  username={''} created_datetime={new Date} title={''} content={''}/>
+          {cards.map((card)=> (
+            <Card username={card.username} created_datetime={card.created_datetime} title={card.title} content={card.content} />
+          ))}
+
       </Page>
     </>
   )
