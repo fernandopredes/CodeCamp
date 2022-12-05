@@ -14,7 +14,7 @@ const Home = (props: Props) => {
           <div className='header'>
             <h1>CodeLeap Network </h1>
           </div>
-        <Card/>
+        <Card  username={''} created_datetime={new Date} title={''} content={''}/>
       </Page>
     </>
   )

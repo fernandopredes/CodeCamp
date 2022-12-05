@@ -4,14 +4,13 @@ import deletar from '../assets/lata.svg'
 import editar from '../assets/editar.svg'
 
 type CardProps = {
-  id: Number
   username: String
   created_datetime: Date
   title: String
   content: String
 }
 
-const Card = ({id, username, created_datetime, title, content}: CardProps) => {
+const Card = ({username, created_datetime, title, content}: CardProps) => {
   return (
     <CardBox>
       <div className='menu'>
@@ -24,7 +23,7 @@ const Card = ({id, username, created_datetime, title, content}: CardProps) => {
       <div className="content">
         <div className="data">
           <p>@{username}</p>
-          <p>{created_datetime} minutes ago</p>
+          <p>{} minutes ago</p>
         </div>
         <div className="text">
           <p>
