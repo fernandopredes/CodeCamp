@@ -1,5 +1,7 @@
 import React from 'react'
+import Card from '../components/Card'
 import Modal from '../components/ModalLogin'
+import { Page } from './Home.style'
 
 
 type Props = {}
@@ -8,16 +10,12 @@ const Home = (props: Props) => {
   return (
     <>
       <Modal />
-      <div>teste</div>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1><h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
+        <Page>
+          <div className='header'>
+            <h1>CodeLeap Network </h1>
+          </div>
+        <Card/>
+      </Page>
     </>
   )
 }
