@@ -6,11 +6,13 @@ export const ModalStyle = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  position: absolute;
+  position: fixed ;
   z-index: 1;
   background-color: #DDDDDD;
   width: 100%;
+  body{
 
+  }
 
 
   .hide{

@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import {ModalStyle} from './Modal.style'
+import {ModalStyle} from './ModalLogin.style'
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/modules/user';
 
@@ -7,7 +7,7 @@ const SignUp = () => {
   const [name, setName] = useState('')
   const dispatch = useDispatch()
   const modal = document.getElementById('hide')
-  
+
 
    function login(event: FormEvent) {
      event.preventDefault()
@@ -20,7 +20,7 @@ const SignUp = () => {
 
 
   return (
-    <ModalStyle id='hide'>
+    <ModalStyle id='hide' >
      <div className="blank"   >
       <h1>Welcome to CodeLeap network!</h1>
       <h2>Please enter your username</h2>
