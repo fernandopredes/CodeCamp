@@ -4,14 +4,18 @@ import deletar from '../assets/lata.svg'
 import editar from '../assets/editar.svg'
 
 type CardProps = {
-
+  id: Number
+  username: String
+  created_datetime: Date
+  title: String
+  content: String
 }
 
-const Card = (props: CardProps) => {
+const Card = ({id, username, created_datetime, title, content}: CardProps) => {
   return (
     <CardBox>
       <div className='menu'>
-          <h3>My First Post at CodeLeap Network!</h3>
+          <h3>{title}</h3>
           <div>
             <img src={deletar} alt="botão de deletar" />
             <img src={editar} alt="botão de editar" />
@@ -19,13 +23,12 @@ const Card = (props: CardProps) => {
         </div>
       <div className="content">
         <div className="data">
-          <p>@Victor</p>
-          <p>25 minutes ago</p>
+          <p>@{username}</p>
+          <p>{created_datetime} minutes ago</p>
         </div>
         <div className="text">
           <p>
-          Curabitur suscipit suscipit tellus. Phasellus consectetuer vestibulum elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas egestas arcu quis ligula mattis placerat. Duis vel nibh at velit scelerisque suscipit.
-          Duis lobortis massa imperdiet quam. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Fusce a quam. Nullam vel sem. Nullam cursus lacinia erat.
+          {content}
           </p>
         </div>
       </div>
