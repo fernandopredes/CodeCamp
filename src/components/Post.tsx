@@ -25,23 +25,27 @@ const Post = (props: PostProps) => {
       )
      }
      submitInfos()
-     
+
     }
 
   return (
     <PostStyle>
-      <h2></h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Title
-          <input {...register('title', { required: true })} placeholder="Hello World" />
-        </label>
-        <label>
-          Content
-          <input {...register('content', { required: true })} placeholder="Content here" />
-        </label>
-        <button>create</button>
-      </form>
+        <div className="container">
+        <h2>What’s on your mind?</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label>
+            <p>Title</p>
+            <input {...register('title', { required: true })} placeholder="Hello World" />
+          </label>
+          <label>
+            <p>Content</p>
+            <textarea {...register('content', { required: true })} placeholder="Content here" />
+          </label>
+          <div className="btn">
+            <button>create</button>
+          </div>
+        </form>
+      </div>
     </PostStyle>
   )
 }
