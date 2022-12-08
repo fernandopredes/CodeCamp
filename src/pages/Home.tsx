@@ -7,6 +7,7 @@ import Post from '../components/Post'
 
 
 
+
 type CardProps = {
   id: Number
   username: String
@@ -27,7 +28,6 @@ const Home = () => {
     const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
     setCards(data.results)
     setTotal(data.count)
-
 
     }
 
@@ -59,7 +59,7 @@ const Home = () => {
             <h1>CodeLeap Network </h1>
           </div>
 
-          <Post  />
+          <Post username={''} title={''} content={''}  />
 
           {cards.map((card, i)=> (
             <Card
