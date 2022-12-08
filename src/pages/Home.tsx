@@ -28,7 +28,7 @@ const Home = () => {
     const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
     setCards(data.results)
     setTotal(data.count)
-    console.log(data)
+
     }
 
     useEffect(() => {
@@ -45,6 +45,7 @@ const Home = () => {
     function previous() {
 
       setOffSet(offSet-10)
+      setTotalShow(totalShow-10)
       document.documentElement.scrollTop = 0
 
     }
