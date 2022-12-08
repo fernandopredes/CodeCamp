@@ -28,7 +28,7 @@ const Home = () => {
     const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
     setCards(data.results)
     setTotal(data.count)
-
+    console.log(data)
     }
 
     useEffect(() => {
@@ -64,6 +64,7 @@ const Home = () => {
           {cards.map((card, i)=> (
             <Card
               key={i}
+              id={card.id}
               username={card.username}
               created_datetime={card.created_datetime}
               title={card.title}

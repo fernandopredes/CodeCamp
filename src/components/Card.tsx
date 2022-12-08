@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { RootStore } from '../redux/store'
 
 type CardProps = {
+  id: Number
   username: String
   created_datetime: Date
   title: String
