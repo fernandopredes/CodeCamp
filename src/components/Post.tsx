@@ -3,6 +3,9 @@ import { PostStyle } from "./Post.style"
 import api from "../actions/api";
 import { useSelector } from 'react-redux'
 import { RootStore } from "../redux/store";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 type PostProps = {
   username: string
@@ -11,6 +14,9 @@ type PostProps = {
 }
 
 const Post = (props: PostProps) => {
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+
   const user = useSelector((store: RootStore)=> store.userReduce)
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<PostProps>();
@@ -35,14 +41,23 @@ const Post = (props: PostProps) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>
             <p>Title</p>
-            <input {...register('title', { required: true })} placeholder="Hello World" />
+            <input {
+              ...register('title', { required: true })}
+              placeholder="Hello World"
+              value={title}
+              onChange={(e)=>{setTitle(e.target.value)}}
+              />
           </label>
           <label>
             <p>Content</p>
-            <textarea {...register('content', { required: true })} placeholder="Content here" />
+            <textarea {...register('content', { required: true })}
+            placeholder="Content here"
+            value={content}
+            onChange={(e)=>{setContent(e.target.value)}}
+            />
           </label>
           <div className="btn">
-            <button>create</button>
+            <button disabled={title === '' || content === '' ? true : false}>create</button>
           </div>
         </form>
       </div>

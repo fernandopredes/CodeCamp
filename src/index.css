@@ -20,4 +20,10 @@ button{
     text-transform: uppercase;
     background: #000000;
     cursor: pointer;
+
+}
+
+button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
 }

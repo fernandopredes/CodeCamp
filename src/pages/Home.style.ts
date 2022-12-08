@@ -16,4 +16,13 @@ background-color: #FFFFFF;
     margin: 0 0 71px 0;
   }
 }
+
+.btns{
+  max-width: 725px;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
 `
