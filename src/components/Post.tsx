@@ -25,7 +25,7 @@ const Post = (props: PostProps) => {
       )
      }
      submitInfos()
-     console.log(data)
+     
     }
 
   return (
