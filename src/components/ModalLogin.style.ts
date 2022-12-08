@@ -10,14 +10,8 @@ export const ModalStyle = styled.div`
   z-index: 1;
   background-color: #DDDDDD;
   width: 100%;
-  body{
-
-  }
 
 
-  .hide{
-    display: none !important;
-  }
 
   .blank{
     background-color: #FFFFFF;
@@ -44,7 +38,6 @@ export const ModalStyle = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-
 
 
       input{

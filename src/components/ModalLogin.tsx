@@ -6,7 +6,7 @@ import { setUser } from '../redux/modules/user';
 const SignUp = () => {
   const [name, setName] = useState('')
   const dispatch = useDispatch()
-  const modal = document.getElementById('hide')
+
 
 
    function login(event: FormEvent) {
@@ -15,7 +15,11 @@ const SignUp = () => {
       name
     }))
     const modal = document.getElementById('hide')
+    const scroll = document.body
+
     modal!.style.display = "none"
+    scroll.style.overflowY="visible"
+
   }
 
 

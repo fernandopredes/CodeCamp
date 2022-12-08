@@ -3,6 +3,5 @@ body{
   box-sizing: border-box;
   background-color: #DDDDDD;
   font-family: 'Roboto', sans-serif;
-
-
+  overflow-y: hidden;
 }
