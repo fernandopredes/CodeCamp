@@ -11,7 +11,7 @@ export type PostProps = {
   username: string
   title: string
   content: string
-
+  onSubmit: any
 }
 
 const Post = (props: PostProps) => {
@@ -22,24 +22,13 @@ const Post = (props: PostProps) => {
   const user = useSelector((store: RootStore)=> store.userReduce)
   const { register, handleSubmit, watch, formState: { errors } } = useForm<PostProps>();
 
-   const onSubmit: SubmitHandler<PostProps> = (data) => {
-    const submitInfos = () => {
-       api.post(`/`, {
-        username: user.name,
-        title: data.title,
-        content: data.content
-        }
-      )
-     }
-     submitInfos()
 
-    }
 
   return (
     <PostStyle>
         <div className="container">
         <h2>What’s on your mind?</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(props.onSubmit)}>
           <label>
             <p>Title</p>
             <input {

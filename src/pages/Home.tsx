@@ -21,6 +21,7 @@ type CardProps = {
 const Home = () => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
+  const [newPost, setNewPost] = useState({})
   const [deletedId, setDeletedId] = useState(0)
   const [cards, setCards] = useState<CardProps[]>([])
   const [show, setShow] = useState(10)
@@ -34,6 +35,18 @@ const Home = () => {
     setTotal(data.count)
     }
 
+    const onSubmit: SubmitHandler<PostProps> = (data) => {
+      const submitInfos = () => {
+         api.post(`/`, {
+          username: user.name,
+          title: data.title,
+          content: data.content
+          }
+        )
+       }
+       submitInfos()
+       setNewPost(data)
+      }
 
 
    async function deletePost(id:number) {
@@ -44,7 +57,7 @@ const Home = () => {
 
     useEffect(() => {
       getCards()
-    }, [show, offSet, deletedId])
+    }, [show, offSet, deletedId, newPost])
 
     function next() {
 
@@ -71,7 +84,7 @@ const Home = () => {
             <h1>CodeLeap Network </h1>
           </div>
 
-          <Post username={''} title={''} content={''}  />
+          <Post username={''} title={''} content={''} onSubmit={onSubmit} />
 
           {cards.map((card, i)=> (
             <Card
