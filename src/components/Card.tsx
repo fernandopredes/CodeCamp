@@ -30,8 +30,8 @@ const Card = ({id, username, created_datetime, title, content}: CardProps) => {
           <div>
           {username === user.name ?
           <>
-            <button><img src={deletar} alt="botão de deletar" onClick={deletePost}/></button>
-            <img src={editar} alt="botão de editar" />
+            <button><img src={deletar} alt="delete button" onClick={deletePost}/></button>
+            <button><img src={editar} alt="edit button" /></button>
           </>
           :
           null}
