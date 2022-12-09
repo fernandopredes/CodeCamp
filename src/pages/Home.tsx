@@ -3,8 +3,10 @@ import Card from '../components/Card'
 import Modal from '../components/ModalLogin'
 import { Page } from './Home.style'
 import api from '../actions/api/index'
-import Post from '../components/Post'
-
+import Post, { PostProps } from '../components/Post'
+import { SubmitHandler } from 'react-hook-form'
+import { useSelector } from 'react-redux'
+import { RootStore } from '../redux/store'
 
 
 
@@ -18,22 +20,35 @@ type CardProps = {
 
 const Home = () => {
 
+  const user = useSelector((store: RootStore)=> store.userReduce)
   const [cards, setCards] = useState<CardProps[]>([])
   const [show, setShow] = useState(10)
   const [offSet, setOffSet] = useState(0)
   const [total, setTotal] = useState(0)
   const [totalShow, setTotalShow] = useState(10)
 
-  async function getCards() {
+    async function getCards() {
     const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
     setCards(data.results)
     setTotal(data.count)
+    }
+
+    const onSubmit: SubmitHandler<PostProps> = (data) => {
+    const submitInfos = () => {
+       api.post(`/`, {
+        username: user.name,
+        title: data.title,
+        content: data.content
+        }
+      )
+     }
+     submitInfos()
 
     }
 
     useEffect(() => {
       getCards()
-    }, [show, offSet])
+    }, [show, offSet, onSubmit])
 
     function next() {
 
@@ -60,7 +75,7 @@ const Home = () => {
             <h1>CodeLeap Network </h1>
           </div>
 
-          <Post username={''} title={''} content={''}  />
+          <Post username={''} title={''} content={''} />
 
           {cards.map((card, i)=> (
             <Card

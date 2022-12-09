@@ -4,16 +4,19 @@ import api from "../actions/api";
 import { useSelector } from 'react-redux'
 import { RootStore } from "../redux/store";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
-type PostProps = {
+
+export type PostProps = {
   username: string
   title: string
   content: string
+
 }
 
 const Post = (props: PostProps) => {
+
+
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
@@ -21,7 +24,7 @@ const Post = (props: PostProps) => {
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<PostProps>();
 
-  const onSubmit: SubmitHandler<PostProps> = (data) => {
+   const onSubmit: SubmitHandler<PostProps> = (data) => {
     const submitInfos = () => {
        api.post(`/`, {
         username: user.name,
