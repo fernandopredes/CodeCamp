@@ -19,6 +19,12 @@ const Card = ({deletePost, id, username, created_datetime, title, content}: Card
 
   const user = useSelector((store: RootStore)=> store.userReduce)
 
+  function alertDelete(id:Number) {
+    let alert = window.confirm("Are you sure you want to delete this item?");
+    if (alert) {
+       deletePost(id)
+    }
+  }
 
 
   return (
@@ -28,7 +34,7 @@ const Card = ({deletePost, id, username, created_datetime, title, content}: Card
           <div>
           {username === user.name ?
           <>
-            <button><img src={deletar} alt="delete button" onClick={()=>deletePost(id)}/></button>
+            <button><img src={deletar} alt="delete button" onClick={()=>alertDelete(id)}/></button>
             <button><img src={editar} alt="edit button" /></button>
           </>
           :
