@@ -18,7 +18,7 @@ type CardProps = {
   content: String
 }
 
-const Home = () => {
+const Home = (id:number) => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
   const [cards, setCards] = useState<CardProps[]>([])
@@ -48,7 +48,7 @@ const Home = () => {
 
     useEffect(() => {
       getCards()
-    }, [show, offSet, onSubmit])
+    }, [show, offSet])
 
     function next() {
 
@@ -64,7 +64,7 @@ const Home = () => {
       document.documentElement.scrollTop = 0
 
     }
-
+   
 
   return (
     <>
@@ -75,7 +75,7 @@ const Home = () => {
             <h1>CodeLeap Network </h1>
           </div>
 
-          <Post username={''} title={''} content={''} />
+          <Post username={''} title={''} content={''}  />
 
           {cards.map((card, i)=> (
             <Card

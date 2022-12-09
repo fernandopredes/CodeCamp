@@ -4,6 +4,7 @@ import deletar from '../assets/lata.svg'
 import editar from '../assets/editar.svg'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../redux/store'
+import api from '../actions/api'
 
 type CardProps = {
   id: Number
@@ -13,9 +14,14 @@ type CardProps = {
   content: String
 }
 
-const Card = ({username, created_datetime, title, content}: CardProps) => {
+const Card = ({id, username, created_datetime, title, content}: CardProps) => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
+
+    function deletePost() {
+      api.delete(`/${id}/`)
+
+    }
 
   return (
     <CardBox>
@@ -24,7 +30,7 @@ const Card = ({username, created_datetime, title, content}: CardProps) => {
           <div>
           {username === user.name ?
           <>
-            <img src={deletar} alt="botão de deletar" />
+            <button><img src={deletar} alt="botão de deletar" onClick={deletePost}/></button>
             <img src={editar} alt="botão de editar" />
           </>
           :
