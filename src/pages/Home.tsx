@@ -18,9 +18,10 @@ type CardProps = {
   content: String
 }
 
-const Home = (id:number) => {
+const Home = () => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
+  const [deletedId, setDeletedId] = useState(0)
   const [cards, setCards] = useState<CardProps[]>([])
   const [show, setShow] = useState(10)
   const [offSet, setOffSet] = useState(0)
@@ -33,22 +34,17 @@ const Home = (id:number) => {
     setTotal(data.count)
     }
 
-    const onSubmit: SubmitHandler<PostProps> = (data) => {
-    const submitInfos = () => {
-       api.post(`/`, {
-        username: user.name,
-        title: data.title,
-        content: data.content
-        }
-      )
-     }
-     submitInfos()
+
+
+   async function deletePost(id:number) {
+     await api.delete(`/${id}/`)
+      setDeletedId(id)
 
     }
 
     useEffect(() => {
       getCards()
-    }, [show, offSet])
+    }, [show, offSet, deletedId])
 
     function next() {
 
@@ -64,7 +60,7 @@ const Home = (id:number) => {
       document.documentElement.scrollTop = 0
 
     }
-   
+
 
   return (
     <>
@@ -85,6 +81,7 @@ const Home = (id:number) => {
               created_datetime={card.created_datetime}
               title={card.title}
               content={card.content}
+              deletePost={deletePost}
             />
           ))}
 

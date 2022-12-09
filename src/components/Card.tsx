@@ -12,16 +12,14 @@ type CardProps = {
   created_datetime: Date
   title: String
   content: String
+  deletePost: Function
 }
 
-const Card = ({id, username, created_datetime, title, content}: CardProps) => {
+const Card = ({deletePost, id, username, created_datetime, title, content}: CardProps) => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
 
-    function deletePost() {
-      api.delete(`/${id}/`)
 
-    }
 
   return (
     <CardBox>
@@ -30,7 +28,7 @@ const Card = ({id, username, created_datetime, title, content}: CardProps) => {
           <div>
           {username === user.name ?
           <>
-            <button><img src={deletar} alt="delete button" onClick={deletePost}/></button>
+            <button><img src={deletar} alt="delete button" onClick={()=>deletePost(id)}/></button>
             <button><img src={editar} alt="edit button" /></button>
           </>
           :

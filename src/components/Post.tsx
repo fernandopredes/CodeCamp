@@ -19,9 +19,7 @@ const Post = (props: PostProps) => {
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-
   const user = useSelector((store: RootStore)=> store.userReduce)
-
   const { register, handleSubmit, watch, formState: { errors } } = useForm<PostProps>();
 
    const onSubmit: SubmitHandler<PostProps> = (data) => {
