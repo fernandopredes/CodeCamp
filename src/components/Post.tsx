@@ -1,6 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { PostStyle } from "./Post.style"
-import api from "../actions/api";
 import { useSelector } from 'react-redux'
 import { RootStore } from "../redux/store";
 import { useState } from "react";

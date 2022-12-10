@@ -35,7 +35,7 @@ label{
 
   textarea{
     width: 98%;
-    max-height: 74px;
+    height: 74px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;

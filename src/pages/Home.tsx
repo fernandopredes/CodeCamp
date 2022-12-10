@@ -7,6 +7,7 @@ import Post, { PostProps } from '../components/Post'
 import { SubmitHandler } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../redux/store'
+import ModalEdit from '../components/ModalEdit'
 
 
 
@@ -78,6 +79,7 @@ const Home = () => {
   return (
     <>
       <Modal />
+      <ModalEdit  />
         <Page>
 
           <div className='header'>
