@@ -3,20 +3,22 @@ import styled from 'styled-components'
 
 export const ModalEditStyle = styled.div`
 
+  .hide{
+    display: none !important;
+  }
 
-  .fade{
+  .fadeEdit{
     width: 100%;
     height: 100%;
-    position: absolute;
     position: fixed ;
     top: 0;
     background-color: rgba(119, 119, 119, 0.8);
 
 
   }
-  .modal{
+  .modalEdit{
+    position: fixed;
     padding: 23px 34px 29px 30px;
-    position: absolute;
     top: 10%;
     left: 0;
     right: 0;

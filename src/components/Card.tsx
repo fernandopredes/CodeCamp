@@ -19,13 +19,19 @@ const Card = ({deletePost, id, username, created_datetime, title, content}: Card
 
   const user = useSelector((store: RootStore)=> store.userReduce)
 
-  function alertDelete(id:Number) {
+  const alertDelete = (id:Number) => {
     let alert = window.confirm("Are you sure you want to delete this item?");
     if (alert) {
        deletePost(id)
     }
   }
 
+  const hideOrShowEdit = () => {
+    const modal = document.querySelector('.modalEdit')
+    const fade = document.querySelector('.fadeEdit')
+    modal!.classList.remove('hide')
+    fade!.classList.remove('hide')
+  }
 
   return (
     <CardBox>
@@ -35,7 +41,7 @@ const Card = ({deletePost, id, username, created_datetime, title, content}: Card
           {username === user.name ?
           <>
             <button><img src={deletar} alt="delete button" onClick={()=>alertDelete(id)}/></button>
-            <button><img src={editar} alt="edit button" /></button>
+            <button><img src={editar} alt="edit button" onClick={()=>hideOrShowEdit()} /></button>
           </>
           :
           null}
