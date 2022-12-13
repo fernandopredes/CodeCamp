@@ -3,6 +3,7 @@ import { PostStyle } from "./Post.style"
 import { useSelector } from 'react-redux'
 import { RootStore } from "../redux/store";
 import { useState } from "react";
+import api from "../actions/api";
 
 
 
@@ -10,24 +11,28 @@ export type PostProps = {
   username: string
   title: string
   content: string
-  onSubmit: any
+  submitInfos: any
 }
 
-const Post = (props: PostProps) => {
+const Post = ({submitInfos}: PostProps) => {
 
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const user = useSelector((store: RootStore)=> store.userReduce)
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<PostProps>();
+  const { register, handleSubmit, resetField, formState: { errors } } = useForm<PostProps>();
 
-
+  const onSubmit: SubmitHandler<PostProps> = (data) => {
+      submitInfos(data)
+      setTitle('')
+      setContent('')
+    }
 
   return (
     <PostStyle>
         <div className="container">
         <h2>What’s on your mind?</h2>
-        <form onSubmit={handleSubmit(props.onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <label>
             <p>Title</p>
             <input {

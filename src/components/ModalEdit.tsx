@@ -15,7 +15,7 @@ const ModalEdit = ({id, updateInfos}: ModalEditProps) => {
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<ModalEditProps>();
+  const { register, handleSubmit, resetField, formState: { errors } } = useForm<ModalEditProps>();
 
   const closeModal= (event: React.MouseEvent): void => {
     const modal = document.querySelector('.modalEdit')
@@ -32,9 +32,11 @@ const ModalEdit = ({id, updateInfos}: ModalEditProps) => {
       const fade = document.querySelector('.fadeEdit')
       modal!.classList.add("hide")
       fade!.classList.add("hide")
-      
       updateInfos(data,id)
+      setTitle('')
+      setContent('')
     }
+
 
 
   return (

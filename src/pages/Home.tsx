@@ -37,18 +37,16 @@ const Home = () => {
       setTotal(data.count)
       }
 
-      const onSubmit: SubmitHandler<PostProps> = (data) => {
-        const submitInfos = () => {
-          api.post(`/`, {
-            username: user.name,
-            title: data.title,
-            content: data.content
-            }
-          )
-        }
-        submitInfos()
+      const submitInfos = (data:any) => {
+        api.post(`/`, {
+          username: user.name,
+          title: data.title,
+          content: data.content
+          }
+        )
         setNewPost(data)
-        }
+      }
+
 
       const updateInfos = (data:any,id:number) => {
         api.patch(`/${id}/`, {
@@ -94,7 +92,7 @@ const Home = () => {
             <h1>CodeLeap Network </h1>
           </div>
 
-          <Post username={''} title={''} content={''} onSubmit={onSubmit} />
+          <Post username={''} title={''} content={''} submitInfos={submitInfos} />
 
           {cards.map((card, i)=> (
             <Card
