@@ -13,9 +13,10 @@ type CardProps = {
   title: String
   content: String
   deletePost: Function
+  children: React.ReactNode
 }
 
-const Card = ({deletePost, id, username, created_datetime, title, content}: CardProps) => {
+const Card = ({deletePost, id, username, created_datetime, title, content, children}: CardProps) => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
 
@@ -34,7 +35,9 @@ const Card = ({deletePost, id, username, created_datetime, title, content}: Card
   }
 
   return (
+
     <CardBox>
+      {children}
       <div className='menu'>
           <h3>{title}</h3>
           <div>

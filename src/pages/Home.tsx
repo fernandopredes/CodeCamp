@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <>
       <Modal />
-      <ModalEdit  />
+
         <Page>
 
           <div className='header'>
@@ -97,6 +97,7 @@ const Home = () => {
               title={card.title}
               content={card.content}
               deletePost={deletePost}
+              children={<ModalEdit title={''} content={''} id={card.id}  />}
             />
           ))}
 
