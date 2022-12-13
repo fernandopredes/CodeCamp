@@ -8,9 +8,10 @@ type ModalEditProps = {
   title: string
   content: string
   id: Number
+  updateInfos: any
 }
 
-const ModalEdit = ({id}: ModalEditProps) => {
+const ModalEdit = ({id, updateInfos}: ModalEditProps) => {
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
@@ -23,25 +24,16 @@ const ModalEdit = ({id}: ModalEditProps) => {
     fade!.classList.add("hide")
   }
 
-  const update = (event: FormEvent) => {
-    event.preventDefault()
 
-  }
 
-  const onSubmit: SubmitHandler<ModalEditProps> = (data) => {
-    const modal = document.querySelector('.modalEdit')
-    const fade = document.querySelector('.fadeEdit')
-    modal!.classList.add("hide")
-    fade!.classList.add("hide")
+  const onEdit: SubmitHandler<ModalEditProps> = (data) => {
 
-    const updateInfos = () => {
-        api.patch(`/${id}/`, {
-        title: data.title,
-        content: data.content
-        }
-       )
-    }
-      updateInfos()
+      const modal = document.querySelector('.modalEdit')
+      const fade = document.querySelector('.fadeEdit')
+      modal!.classList.add("hide")
+      fade!.classList.add("hide")
+      
+      updateInfos(data,id)
     }
 
 
@@ -50,7 +42,7 @@ const ModalEdit = ({id}: ModalEditProps) => {
       <div className='fadeEdit hide' onClick={(e)=> {closeModal(e)}}></div>
       <div className='modalEdit hide'>
         <h2>edit item </h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onEdit)}>
           <div className='title'>
             <label htmlFor="">title</label>
             <input {

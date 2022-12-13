@@ -23,6 +23,7 @@ const Home = () => {
 
   const user = useSelector((store: RootStore)=> store.userReduce)
   const [newPost, setNewPost] = useState({})
+  const [editedPost, setEditedPost] = useState({})
   const [deletedId, setDeletedId] = useState(0)
   const [cards, setCards] = useState<CardProps[]>([])
   const [show, setShow] = useState(10)
@@ -30,50 +31,57 @@ const Home = () => {
   const [total, setTotal] = useState(0)
   const [totalShow, setTotalShow] = useState(10)
 
-    async function getCards() {
-    const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
-    setCards(data.results)
-    setTotal(data.count)
-    }
-
-    const onSubmit: SubmitHandler<PostProps> = (data) => {
-      const submitInfos = () => {
-         api.post(`/`, {
-          username: user.name,
-          title: data.title,
-          content: data.content
-          }
-        )
-       }
-       submitInfos()
-       setNewPost(data)
+      async function getCards() {
+      const { data } = await  api.get(`/?limit=${show}&offset=${offSet}`)
+      setCards(data.results)
+      setTotal(data.count)
       }
 
+      const onSubmit: SubmitHandler<PostProps> = (data) => {
+        const submitInfos = () => {
+          api.post(`/`, {
+            username: user.name,
+            title: data.title,
+            content: data.content
+            }
+          )
+        }
+        submitInfos()
+        setNewPost(data)
+        }
 
-   async function deletePost(id:number) {
-     await api.delete(`/${id}/`)
-      setDeletedId(id)
+      const updateInfos = (data:any,id:number) => {
+        api.patch(`/${id}/`, {
+        title: data.title,
+        content: data.content
+            }
+          )
+        setEditedPost(data)
+        }
 
-    }
+      async function deletePost(id:number) {
+        await api.delete(`/${id}/`)
+          setDeletedId(id)
+        }
 
-    useEffect(() => {
-      getCards()
-    }, [show, offSet, deletedId, newPost])
+      useEffect(() => {
+        getCards()
+      }, [show, offSet, deletedId, newPost, editedPost])
 
-    function next() {
+      function next() {
 
-      setOffSet(offSet+10)
-      setTotalShow(totalShow+10)
-      document.documentElement.scrollTop = 0
-    }
+        setOffSet(offSet+10)
+        setTotalShow(totalShow+10)
+        document.documentElement.scrollTop = 0
+      }
 
-    function previous() {
+      function previous() {
 
-      setOffSet(offSet-10)
-      setTotalShow(totalShow-10)
-      document.documentElement.scrollTop = 0
+        setOffSet(offSet-10)
+        setTotalShow(totalShow-10)
+        document.documentElement.scrollTop = 0
 
-    }
+      }
 
 
   return (
@@ -97,7 +105,7 @@ const Home = () => {
               title={card.title}
               content={card.content}
               deletePost={deletePost}
-              children={<ModalEdit title={''} content={''} id={card.id}  />}
+              children={<ModalEdit title={''} content={''} id={card.id} updateInfos={updateInfos} />}
             />
           ))}
 
