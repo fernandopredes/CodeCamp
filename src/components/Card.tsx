@@ -43,8 +43,8 @@ const Card = ({deletePost, id, username, created_datetime, title, content, child
           <div>
           {username === user.name ?
           <>
-            <button><img src={deletar} alt="delete button" onClick={()=>alertDelete(id)}/></button>
-            <button><img src={editar} alt="edit button" onClick={()=>hideOrShowEdit()} /></button>
+            <button className='delete'><img  src={deletar} alt="delete button" onClick={()=>alertDelete(id)}/></button>
+            <button className='edit'><img  src={editar} alt="edit button" onClick={()=>hideOrShowEdit()} /></button>
           </>
           :
           null}

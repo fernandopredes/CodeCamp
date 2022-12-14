@@ -77,13 +77,15 @@ export const ModalEditStyle = styled.div`
     }
     .content{
       display: flex;
+      margin-top: 20px;
+      padding: 0;
       flex-direction: column;
       margin-bottom: 35px;
       label:first-letter{
         text-transform: capitalize;
       }
       textarea{
-        color: #CCCCCC;
+
         height: 74px;
         font-family: 'Roboto';
         font-style: normal;
@@ -97,6 +99,14 @@ export const ModalEditStyle = styled.div`
         resize: none;
         :focus {
         outline: none;
+        }
+        ::placeholder{
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: #CCCCCC;
         }
       }
 

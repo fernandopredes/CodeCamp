@@ -16,6 +16,33 @@ h3{
   background-color: #000000;
 }
 
+button{
+
+  &.delete{
+    img{
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+    padding:0;
+
+  }
+  &.edit{
+    img{
+      width: 2rem;
+      height: 2rem;
+    }
+    padding:0;
+    margin-left: 25px;
+  }
+}
+
+
+ p{
+  .user{
+    background-color: red;
+  }
+ }
+
 .content{
   padding: 25px 30px 30px 30px;
 }

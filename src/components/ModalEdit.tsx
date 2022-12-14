@@ -4,7 +4,7 @@ import { ModalEditStyle } from './ModalEdit.style'
 
 
 type ModalEditProps = {
-  
+
   title: string
   content: string
   oldTitle: string
