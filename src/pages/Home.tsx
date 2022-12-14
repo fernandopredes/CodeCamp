@@ -13,10 +13,10 @@ import ModalEdit from '../components/ModalEdit'
 
 type CardProps = {
   id: Number
-  username: String
+  username: string
   created_datetime: Date
-  title: String
-  content: String
+  title: string
+  content: string
 }
 
 const Home = () => {
@@ -37,8 +37,8 @@ const Home = () => {
       setTotal(data.count)
       }
 
-      const submitInfos = (data:any) => {
-        api.post(`/`, {
+      const submitInfos = async (data:any) => {
+       await api.post(`/`, {
           username: user.name,
           title: data.title,
           content: data.content
@@ -46,7 +46,6 @@ const Home = () => {
         )
         setNewPost(data)
       }
-
 
       const updateInfos = (data:any,id:number) => {
         api.patch(`/${id}/`, {
@@ -103,7 +102,7 @@ const Home = () => {
               title={card.title}
               content={card.content}
               deletePost={deletePost}
-              children={<ModalEdit title={''} content={''} id={card.id} updateInfos={updateInfos} />}
+              children={<ModalEdit oldTitle={card.title} oldContent={card.content} id={card.id} updateInfos={updateInfos} title={''} content={''} />}
             />
           ))}
 

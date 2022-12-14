@@ -1,21 +1,23 @@
-import React, { FormEvent, useState } from 'react'
+import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
-import api from '../actions/api';
 import { ModalEditStyle } from './ModalEdit.style'
 
 
 type ModalEditProps = {
+  
   title: string
   content: string
+  oldTitle: string
+  oldContent: string
   id: Number
   updateInfos: any
 }
 
-const ModalEdit = ({id, updateInfos}: ModalEditProps) => {
+const ModalEdit = ({id, updateInfos, oldTitle, oldContent}: ModalEditProps) => {
 
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const { register, handleSubmit, resetField, formState: { errors } } = useForm<ModalEditProps>();
+  const [title, setTitle] = useState(oldTitle)
+  const [content, setContent] = useState(oldContent)
+  const { register, handleSubmit, formState: { errors } } = useForm<ModalEditProps>();
 
   const closeModal= (event: React.MouseEvent): void => {
     const modal = document.querySelector('.modalEdit')
@@ -33,8 +35,7 @@ const ModalEdit = ({id, updateInfos}: ModalEditProps) => {
       modal!.classList.add("hide")
       fade!.classList.add("hide")
       updateInfos(data,id)
-      setTitle('')
-      setContent('')
+
     }
 
 
