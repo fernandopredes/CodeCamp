@@ -102,7 +102,7 @@ const Home = () => {
               title={card.title}
               content={card.content}
               deletePost={deletePost}
-              children={<ModalEdit oldTitle={card.title} oldContent={card.content} id={card.id} updateInfos={updateInfos} title={''} content={''} />}
+              children={<ModalEdit oldTitle={''} oldContent={''} id={card.id} updateInfos={updateInfos} title={''} content={''} />}
             />
           ))}
 
