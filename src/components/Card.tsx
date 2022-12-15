@@ -37,16 +37,18 @@ const Card = ({deletePost, id, username, created_datetime, title, content, child
 
   const DAY_MILLISECONDS = 1000 * 60 * 60 * 24;
 
-  function getRelativeTime(timestamp: any) {
+  function getRelativeTime(timestamp: number) {
     const rtf = new Intl.RelativeTimeFormat('en', {
       numeric: 'auto',
-    });
+    })
     const daysDifference = Math.round(
-      (timestamp - new Date().getTime()) / DAY_MILLISECONDS,
-    );
+      (timestamp - new Date().getTime()) / DAY_MILLISECONDS
 
+    );
     return rtf.format(daysDifference, 'day');
+
   }
+
 
 
 
