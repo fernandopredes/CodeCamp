@@ -34,7 +34,7 @@ const Card = ({deletePost, id, username, created_datetime, title, content, child
     fade!.classList.remove('hide')
   }
 
-  const rtf1 = new Intl.RelativeTimeFormat('en', { style: 'narrow' });
+
   const DAY_MILLISECONDS = 1000 * 60 * 60 * 24;
 
   function getRelativeTime(timestamp: any) {
@@ -47,7 +47,7 @@ const Card = ({deletePost, id, username, created_datetime, title, content, child
 
     return rtf.format(daysDifference, 'day');
   }
-  
+
 
 
   return (
