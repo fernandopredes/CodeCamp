@@ -49,6 +49,7 @@ button{
 
 .menu{
   display: flex;
+  align-items: center;
   justify-content: space-between;
   background-color: #000000;
   padding: 25px 30px;
