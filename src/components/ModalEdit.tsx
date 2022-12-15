@@ -64,7 +64,7 @@ const ModalEdit = ({id, updateInfos, oldTitle, oldContent}: ModalEditProps) => {
             />
           </div>
           <div className='btn'>
-            <button type='submit'>save</button>
+            <button type='submit' disabled={title === '' || content === '' ? true : false}>save</button>
           </div>
         </form>
       </div>
