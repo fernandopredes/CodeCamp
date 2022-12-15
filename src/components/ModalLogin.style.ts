@@ -45,6 +45,10 @@ export const ModalStyle = styled.div`
         border: 1px solid #777777;
         border-radius: 4px;
         padding: 7px 0 7px 11px;
+
+        @media (max-width: 475px) {
+          width: 300px;
+         }
       }
 
       button{
@@ -65,4 +69,8 @@ export const ModalStyle = styled.div`
     }
 
   }
+
+
+
+
 `
