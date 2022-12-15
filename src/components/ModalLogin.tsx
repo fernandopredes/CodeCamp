@@ -30,8 +30,10 @@ const SignUp = () => {
       <h2>Please enter your username</h2>
         <div className='flex'>
         <form onSubmit={login}>
-        <input type="text" placeholder='John doe' value={name} onChange={(e)=>{setName(e.target.value)}}/>
-        <button disabled={name === '' ? true : false}>enter</button>
+        <div className='flex'>
+          <input type="text" placeholder='John doe' value={name} onChange={(e)=>{setName(e.target.value)}}/>
+          <button disabled={name === '' ? true : false}>enter</button>
+        </div>
         </form>
         </div>
      </div>
